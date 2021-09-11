@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>DashBoard</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+
+        }
+         tr:hover {
+           background-color: #d6d8db;
+        }
+        tr:first-child:hover {
+            background-color: #212529;
+        }
+        a {
+            color:#212529!important;
+        }
+
+    </style>
+</head>
+<body>
+<h2>    TOTAL EXPENSES   </h2>
+<div align="right">
+    <form action="/makePayment"><input type="submit" value="ADD EXPENSES"></form></div>
+
+       <table class="table table-dark">
+           <th>NAME</th>
+           <th>AMOUNT SEND</th>
+           <th>AMOUNT RECEIVED</th>
+           <th>DATE</th>
+           <th>TOTAL</th>
+           <tr th:each= "aHistory :${transactionHistory1}">
+               <td th:text="${aHistory.sender}"/>
+               <td th:text=" ${aHistory.amount}"/>
+               <td/>
+               <td th:text=" ${aHistory.date}"/>
+               <td th:text=" ${aHistory.amount}"/>
+           </tr>
+           <tr th:each= "aHistory :${transactionHistory1}">
+               <td th:text="${aHistory.receiver}"/>
+               <td/>
+               <td th:text=" ${aHistory.amount}"/>
+               <td th:text=" ${aHistory.date}"/>
+               <td th:text=" ${aHistory.amount}"/>
+           </tr>
+       </table>
+<div th:if = "${totalPages > 1}">
+    <div class = "row col-sm-10">
+        <div class = "col-sm-2">
+            Total Rows: [[${totalItems}]]
+        </div>
+        <div class = "col-sm-1">
+					<span th:each="i: ${#numbers.sequence(1, totalPages)}">
+						<a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">[[${i}]]</a>
+						<span th:unless="${currentPage != i}">[[${i}]]</span>  &nbsp; &nbsp;
+					</span>
+        </div>
+        <div class = "col-sm-1">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Next</a>
+            <span th:unless="${currentPage < totalPages}">Next</span>
+        </div>
+
+        <div class="col-sm-1">
+            <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}+ '?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">Last</a>
+            <span th:unless="${currentPage < totalPages}">Last</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

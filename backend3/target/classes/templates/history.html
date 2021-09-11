@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HISTORY</title>
+    <style>
+        table,th,td {
+            /*width: 100%;*/
+            /*padding: 8px;*/
+            border-collapse: collapse;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+ <h2>Group Name :  </h2>
+ <div>
+     <table >
+         <thead>
+         <tr>
+             <th>SENDER</th>
+             <th>RECEIVER</th>
+             <th>DATE</th>
+             <th>AMOUNT</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr th:each= "aHistory :${transactionHistory}">
+             <td th:text="${aHistory.sender}"/>
+<!--             <br>-->
+             <td th:text="${aHistory.receiver}"/>
+             <td th:text=" ${aHistory.date}"/>
+             <td th:text=" ${aHistory.amount}"/>
+         </tbody>
+     </table>
+ </div>
+</body>
+</html>

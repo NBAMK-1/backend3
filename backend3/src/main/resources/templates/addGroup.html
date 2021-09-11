@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Group</title>
+</head>
+<body>
+<center><div>
+    <h2>ADD GROUP</h2>
+    <form action="/addGroup" th:object="${group}">
+        GROUP NAME :
+        <input type="text" name="addG"><br>
+        ADD USER :
+        <select th:field="*{userList}">
+            <option th:each="userList : ${allUser}" th:value="${userList.uid}" th:text="${userList.name}">
+            </option>
+        </select>
+        <br><br>
+        <input type="submit">
+    </form>
+</div>
+</center>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> <!-- Required meta tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>MAKE PAYMENT</title>
+    <style>
+        input[type=text] {
+            width:22%;
+        }
+        input[type=date] {
+            width:22%;
+        }
+    </style>
+
+</head>
+<body>
+<div class="w3-container w3-teal">
+    <h2>MAKE PAYMENT</h2>
+</div>
+
+<form class="w3-container" action="/transactionHistory">
+    <label class="w3-text-teal"  ><b>SENDER</b></label>
+    <input class="w3-input w3-border w3-light-grey" name="sender" type="text">
+
+    <label class="w3-text-teal"><b>RECEIVER</b></label>
+    <input class="w3-input w3-border w3-light-grey"name="receiver" type="text">
+
+
+    <label class="w3-text-teal"><b>DATE</b></label>
+    <input class="w3-input w3-border w3-light-grey" name="date" type="date">
+
+
+    <label class="w3-text-teal"><b>AMOUNT</b></label>
+    <input  class="w3-input w3-border w3-light-grey" name="amount" type="text">
+    <br>
+    <button class="w3-btn w3-blue-grey text-center" >MAKE PAYMENT</button>
+</form>
+</body>
+</html>
